@@ -1,0 +1,931 @@
+F<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELAMAT DATANG KE UMUR 22 ! 🎂🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Warna-warni ceria */
+            --warna-1: #ff6b6b; 
+            --warna-2: #feca57; 
+            --warna-3: #48dbfb; 
+            --warna-4: #1dd1a1; 
+            --warna-5: #ff9ff3; 
+            --warna-teks: #5f27cd; 
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            text-align: center; 
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.6) 2px, transparent 2px);
+            background-size: 30px 30px;
+            z-index: -10; 
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            filter: blur(30px); 
+            opacity: 0.5;
+            z-index: -5; 
+            animation: blobFloat 10s infinite alternate ease-in-out;
+        }
+        
+        .blob1 { width: 350px; height: 350px; background: var(--warna-2); top: -100px; left: -100px; animation-delay: 0s; }
+        .blob2 { width: 300px; height: 300px; background: var(--warna-3); bottom: -50px; right: -50px; animation-delay: -3s; }
+        .blob3 { width: 200px; height: 200px; background: var(--warna-5); top: 10%; right: 15%; animation-delay: -6s; }
+
+        @keyframes blobFloat {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            100% { transform: translate(50px, -30px) scale(1.1) rotate(20deg); border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -120px;
+            width: 60px;
+            height: 80px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            opacity: 0.8; 
+            z-index: 0;
+            animation: fly infinite ease-in;
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 25px;
+            background: rgba(0,0,0,0.2);
+            transform: translateX(-50%);
+        }
+
+        @keyframes fly {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+            50% { transform: translateY(-60vh) rotate(10deg); }
+            100% { transform: translateY(-120vh) rotate(-10deg); opacity: 0; }
+        }
+
+        .card { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 40px 30px; 
+            border-radius: 30px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15), 0 5px 15px rgba(0,0,0,0.05); 
+            max-width: 450px;
+            width: 80%;
+            border: 4px dashed var(--warna-5);
+            position: relative;
+            z-index: 10;
+            animation: cardFloat 5s infinite ease-in-out;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .card::-webkit-scrollbar { width: 5px; }
+        .card::-webkit-scrollbar-thumb { background: var(--warna-5); border-radius: 10px; }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 { 
+            font-family: 'Pacifico', cursive;
+            color: var(--warna-1); 
+            font-size: 40px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 0px #ffeaa7;
+        }
+
+        p { color: #555; font-size: 15px; line-height: 1.5; font-weight: 500; }
+
+        .password-input {
+            width: 60%;
+            padding: 15px;
+            font-size: 26px;
+            text-align: center;
+            border: 4px solid var(--warna-3);
+            border-radius: 20px;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 8px; 
+            margin: 20px 0;
+            color: var(--warna-1);
+            font-weight: bold;
+            background: #f1f2f6;
+            transition: all 0.3s;
+        }
+
+        .password-input:focus {
+            border-color: var(--warna-4);
+            background: white;
+            box-shadow: 0 0 20px rgba(29, 209, 161, 0.4);
+            transform: scale(1.05);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px) rotate(-2deg); }
+            50% { transform: translateX(10px) rotate(2deg); }
+            75% { transform: translateX(-10px) rotate(-2deg); }
+        }
+
+        .shake { animation: shake 0.4s ease-in-out; border-color: var(--warna-1) !important; }
+
+        /* --- BUTANG HADIAH (GIFT BUTTON) --- */
+        #giftBtn {
+            background: none;
+            border: none;
+            box-shadow: none;
+            font-size: 100px;
+            cursor: pointer;
+            padding: 0;
+            margin: 20px 0;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulseGift 2s infinite alternate;
+        }
+
+        #giftBtn:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @keyframes pulseGift {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .shake-gift {
+            animation: shake 0.3s ease-in-out infinite !important;
+        }
+        /* ----------------------------------- */
+
+        /* --- GALERI GAMBAR --- */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(-3deg);
+            transition: all 0.3s ease;
+        }
+
+        .photo:nth-child(even) {
+            transform: rotate(3deg);
+        }
+
+        .photo:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+            border-color: var(--warna-1);
+        }
+        /* ----------------------------------- */
+
+        .buttons { margin-top: 40px; position: relative; height: 120px; }
+
+        button { 
+            padding: 15px 35px; 
+            font-size: 20px; 
+            border-radius: 50px; 
+            border: none; 
+            cursor: pointer; 
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-ceria { 
+            background: linear-gradient(135deg, var(--warna-5), var(--warna-1));
+            color: white; 
+            z-index: 10;
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 107, 107, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+        }
+
+        .btn-ceria:hover { 
+            transform: scale(1.15) rotate(-3deg);
+            background: linear-gradient(135deg, var(--warna-1), var(--warna-2));
+            color: #fff;
+        }
+
+        #noBtn { 
+            background: #dfe4ea; 
+            color: #747d8c; 
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        #responseMsg { 
+            display: none; 
+            font-size: 26px;
+            color: var(--warna-1);
+            font-weight: bold;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- Tic Tac Toe --- */
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 75px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .cell {
+            width: 75px;
+            height: 75px;
+            background: #f8efff;
+            border: 4px solid var(--warna-5);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+        .cell:hover { background: var(--warna-2); transform: scale(1.05); border-color: var(--warna-1); }
+
+        /* --- Memory Match Game CSS --- */
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 70px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin: 20px auto;
+            perspective: 1000px;
+        }
+
+        .m-card {
+            width: 70px;
+            height: 70px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .m-card.flip { transform: rotateY(180deg); }
+
+        .m-card-front, .m-card-back {
+            width: 100%; height: 100%;
+            position: absolute; backface-visibility: hidden;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 35px; border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .m-card-front {
+            background: #f8efff; border: 3px solid var(--warna-3);
+            transform: rotateY(180deg); overflow: hidden; padding: 0;
+        }
+
+        .m-card-back {
+            background: var(--warna-1); border: 3px solid white; color: white; font-size: 30px;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px);
+        }
+
+        /* --------------------------------- */
+        .secret-note {
+            background: #fff9c4; padding: 40px; border-radius: 20px;
+            border: 3px dashed var(--warna-2); margin-top: 20px;
+            animation: popIn 0.8s ease; display: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .heart-container { display: flex; justify-content: center; align-items: center; margin: 30px auto; }
+        .heart {
+            position: relative; width: 60px; height: 60px; background: red;
+            transform: rotate(-45deg); animation: heartbeat 1.2s infinite;
+        }
+        .heart::before, .heart::after {
+            content: ""; position: absolute; width: 60px; height: 60px;
+            background: red; border-radius: 50%;
+        }
+        .heart::before { top: -30px; left: 0; }
+        .heart::after { left: 30px; top: 0; }
+
+        @keyframes heartbeat {
+            0% { transform: rotate(-45deg) scale(1); }
+            14% { transform: rotate(-45deg) scale(1.3); }
+            28% { transform: rotate(-45deg) scale(1); }
+            42% { transform: rotate(-45deg) scale(1.3); }
+            70% { transform: rotate(-45deg) scale(1); }
+        }
+
+        .cake-container { position: absolute; z-index: 1; animation: cakeFloat 3s infinite ease-in-out; }
+        .left-cake { left: 5%; top: 35%; animation-delay: 0s; }
+        .right-cake { right: 20%; top: 35%; animation-delay: 1.5s; }
+
+        .cake-bottom {
+            width: 120px; height: 55px; background: var(--warna-3);
+            border-radius: 10px 10px 5px 5px; border: 3px solid white;
+            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.1);
+            position: absolute; bottom: 0; left: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, var(--warna-1) 3px, transparent 4px),
+                radial-gradient(circle at 80% 40%, var(--warna-2) 3px, transparent 4px),
+                radial-gradient(circle at 40% 70%, var(--warna-5) 3px, transparent 4px),
+                radial-gradient(circle at 70% 80%, white 3px, transparent 4px),
+                radial-gradient(circle at 50% 30%, var(--warna-2) 3px, transparent 4px);
+        }
+
+        .cake-bottom::after {
+            content: ''; position: absolute; width: 140px; height: 12px;
+            background: var(--warna-5); border-radius: 50%;
+            bottom: -6px; left: -13px; z-index: -1;
+        }
+
+        .cake-top {
+            width: 90px; height: 45px; background: var(--warna-2);
+            border-radius: 15px 15px 5px 5px; border: 3px solid white;
+            position: absolute; bottom: 50px; left: 12px;
+            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.05);
+        }
+
+        .cake-top::before {
+            content: ''; position: absolute; width: 100%; height: 15px;
+            background: white; top: -3px; left: 0; border-radius: 10px 10px 5px 5px;
+            background-image: radial-gradient(circle at 10px 15px, white 10px, transparent 11px),
+                              radial-gradient(circle at 30px 15px, white 12px, transparent 13px),
+                              radial-gradient(circle at 55px 15px, white 10px, transparent 11px),
+                              radial-gradient(circle at 80px 15px, white 12px, transparent 13px);
+        }
+
+        .candle {
+            width: 12px; height: 35px;
+            background: repeating-linear-gradient(45deg, #fff, #fff 4px, var(--warna-1) 4px, var(--warna-1) 8px);
+            border-radius: 5px; position: absolute; bottom: 92px; left: 51px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .flame {
+            width: 16px; height: 24px; background: var(--warna-2);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute; bottom: 125px; left: 49px;
+            animation: flicker 0.4s infinite alternate;
+            box-shadow: 0 0 15px var(--warna-2), 0 0 30px #ff9800;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-3deg); opacity: 0.8; }
+            100% { transform: scale(1.15) rotate(3deg); opacity: 1; }
+        }
+
+        @keyframes cakeFloat {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .big-cake-wrapper { position: relative; width: 120px; height: 160px; margin: 20px auto 40px auto; }
+
+        @media (max-width: 768px) {
+            .cake-container { display: none; }
+            .blob { display: none; } 
+            .card { width: 90%; padding: 30px 20px; }
+            .password-input { width: 80%; }
+            .board { grid-template-columns: repeat(3, 65px); }
+            .cell { width: 65px; height: 65px; font-size: 35px; }
+            .memory-game { grid-template-columns: repeat(4, 60px); grid-gap: 8px; }
+            .m-card { width: 60px; height: 60px; }
+            .m-card-front, .m-card-back { font-size: 28px; }
+            h1 { font-size: 32px; }
+            #giftBtn { font-size: 80px; }
+            .photo { height: 130px; }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="quiziz.song.mp3" type="audio/mpeg">
+    </audio>
+	<audio id="finalMusic">
+   	 <source src="romantic.song.mp3" type="audio/mpeg">
+	</audio>
+
+    <audio id="clickSound">
+        <source src="water.drop.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <div class="balloon" style="left: 10%; background: var(--warna-1); animation-duration: 8s; animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 25%; background: var(--warna-2); animation-duration: 12s; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 45%; background: var(--warna-3); animation-duration: 10s; animation-delay: 5s;"></div>
+    <div class="balloon" style="left: 65%; background: var(--warna-4); animation-duration: 14s; animation-delay: 1s;"></div>
+    <div class="balloon" style="left: 85%; background: var(--warna-5); animation-duration: 9s; animation-delay: 3s;"></div>
+
+    <div class="cake-container left-cake">
+        <div class="flame"></div><div class="candle"></div><div class="cake-top"></div><div class="cake-bottom"></div>
+    </div>
+    <div class="cake-container right-cake">
+        <div class="flame"></div><div class="candle"></div><div class="cake-top"></div><div class="cake-bottom"></div>
+    </div>
+
+    <div class="card" id="introCard">
+        <div class="heart-container" style="margin-top: 15px; margin-bottom: 40px;">
+            <div class="heart"></div>
+        </div>
+        <h1 style="font-size: 45px;">Happy Birthday<br>Cahaya</h1>
+        <br>
+        <button id="nextToPasswordBtn" class="btn-ceria" style="margin-top: 10px;">Next ✨</button>
+    </div>
+
+    <div class="card" id="passwordCard" style="display: none;">
+        <h1>Kunci Rahsia! 🔐</h1>
+        <p>SEJAUH MANA AWAK INGT PASAL MAJLIS KITA?: <br><span style="font-size: 14px; color: var(--warna-1); font-weight: bold;">(Hint: hantaran 💍🤭)</span></p>
+        <input type="password" id="passwordInput" class="password-input" placeholder="******" maxlength="6">
+        <br>
+        <button id="unlockBtn" class="btn-ceria">Buka Kad ✨</button>
+        <p id="errorMsg" style="color: var(--warna-1); display: none; font-size: 15px; margin-top: 15px; font-weight: bold;">
+            Alamak, salah kod la! Cuba ingat balik betul-betul 🥺
+        </p>
+    </div>
+
+    <div class="card" id="giftCard" style="display: none;">
+        <h1>Hadiah Awak ! 🎉</h1>
+        <p>KALAU BERANI AWAK TEKANNNN.<br> HURMM PENAKUTT WERKK !!!</p>
+        
+        <button id="giftBtn">🎁</button>
+        
+        <p id="giftHint" style="font-size: 14px; color: var(--warna-3); font-weight: bold;">(TEKANNN LAH KOTAK TU )</p>
+    </div>
+
+    <div class="card" id="galleryCard" style="display: none;">
+        <h1>ZASSSSS! 📸</h1>
+        <p style="font-size: 15px;"> HAPPY BIRTHDAY CAHAYA YANG SELALU GEMBIRAKAN SAYA🤭</p>
+        
+        <div class="photo-gallery">
+            <img src='galeri1.jpg' alt="Gambar 1" class="photo">
+            <img src='galeri2.jpg' alt="Gambar 2" class="photo">
+            <img src='galeri3.jpg' alt="Gambar 3" class="photo">
+            <img src='galeri4.jpg' alt="Gambar 4" class="photo">
+        </div>
+
+        <button id="nextToGameBtn" class="btn-ceria">NEXT !!! ➡️</button>
+    </div>
+
+    <div class="card" id="mainCard" style="display: none;">
+        <h1>NUR AINDINIE 🥳</h1>
+        <p id="main-text">ADAKAH AWAK NAK KEKAL DENGAN SAYA SAMPAI KE PELAMIN? <br> PUNCAK GUNUNG KE PUNCAK PELAMIN! 🥺</p>
+        
+        <div class="buttons" id="btn-container">
+            <button id="yesBtn" class="btn-ceria"> YES! 😍</button>
+            <button id="noBtn">NO ! 😜</button>
+        </div>
+        
+        <div id="responseMsg">
+            🎉 RETI MAIN KE! ❤️<br>
+            <span style="font-size: 15px; font-weight: 500; color: #555;">KITE TENGOK AWAK PANDAI MAIN TAK GAME NI</span>
+            
+            <div id="tictactoe-container">
+                <div class="board" id="board">
+                    <div class="cell" data-index="0"></div><div class="cell" data-index="1"></div><div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div><div class="cell" data-index="4"></div><div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div><div class="cell" data-index="7"></div><div class="cell" data-index="8"></div>
+                </div>
+                <p id="game-status" style="font-size: 20px; margin-top: 15px; color: var(--warna-teks);"></p>
+                <button id="nextSesiBtn" class="btn-ceria" style="display: none; margin-top: 10px;">Seterusnya! ➡️</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="memoryGameCard" style="display: none;">
+        <h1> uji minda! 🧠</h1>
+        <p style="font-size: 15px;">CARI GAMBAR YANG SAMAA CEPAT SIKITT NAK BUKAK KOTAK HADIAH AWAK! 😆</p>
+        
+        <div class="memory-game" id="memory-game-board">
+            </div>
+
+        <p id="memory-status" style="font-size: 20px; margin-top: 15px; color: var(--warna-1); font-weight: bold; height: 30px;"></p>
+        <button id="nextKeKekBtn" class="btn-ceria" style="display: none; margin-top: 10px;">NEXT ! 🎂</button>
+    </div>
+
+    <div class="card" id="cakeCard" style="display: none;">
+        <h1> BIRTHDAY AWAK! ✨</h1>
+        <p id="tiup-hint"><i>HAPPY BIRTHDAY SAYANGG </i>, SELAMAT MENETAS KALI KE  22!! <b>Next</b> </p>
+        
+        <div class="big-cake-wrapper">
+            <div class="flame" id="big-flame" style="cursor: pointer; transform: scale(1.2);"></div>
+            <div class="candle"></div><div class="cake-top"></div><div class="cake-bottom"></div>
+        </div>
+
+        <button id="padamLilinBtn" class="btn-ceria">Next ✨</button>
+
+        <div class="secret-note" id="finalNote">
+            <h2 style="color: var(--warna-1); font-family: 'Pacifico', cursive; margin: 0 0 10px 0; font-size: 28px;">Happy Birthday Sayang! 🎉</h2>
+            <p style="font-size: 16px; margin: 0; color: #444; font-weight: bold;">Terima kasih awak sebab tak pernah give up untuk saat ini and awak selalu layan saya.Sebenarnya saya takut gaduh dengan awak… saya takut satu hari nanti awak penat dan pilih orang lain daripada saya. Itu je yang saya tak sanggup.Mintak maaf sebab saya selalu annoyingkan awk.Gaduh macam manapun saya harap bile kita penat sangat, janji jangan lepaskan tangan masing-masing. Kita rehat kejap, bukan berhenti.Happy bithday sayang NUR AIN DINIE (Cahaya). OKAY BUKAK HADIAH AWAK !!! 💖</p>
+           
+            <div class="heart-container">
+                <div class="heart"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyA5yEL0bNKOj9gx3k_SRzgOcad_Sj2lK5Y",
+            authDomain: "try-and-error-8f945.firebaseapp.com",
+            databaseURL: "https://try-and-error-8f945-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "try-and-error-8f945",
+            storageBucket: "try-and-error-8f945.firebasestorage.app",
+            messagingSenderId: "147205755015",
+            appId: "1:147205755015:web:88928833f5f811b565a822",
+            measurementId: "G-J3MPDFE2BD"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // --- Logik Audio ---
+        const bgMusic = document.getElementById('bgMusic');
+        const clickSound = document.getElementById('clickSound');
+        const semuaButang = document.querySelectorAll('button');
+        
+        semuaButang.forEach(butang => {
+            butang.addEventListener('click', () => {
+                clickSound.currentTime = 0; 
+                clickSound.play();
+            });
+        });
+
+        // --- Logik Intro ke Password ---
+        const introCard = document.getElementById('introCard');
+        const nextToPasswordBtn = document.getElementById('nextToPasswordBtn');
+        const passwordCard = document.getElementById('passwordCard');
+        const giftCard = document.getElementById('giftCard');
+        const galleryCard = document.getElementById('galleryCard');
+        const mainCard = document.getElementById('mainCard');
+        
+        nextToPasswordBtn.addEventListener('click', () => {
+            introCard.style.display = 'none';
+            passwordCard.style.display = 'block';
+            bgMusic.play();
+        });
+
+        // --- Logik Kunci Rahsia ---
+        const passwordInput = document.getElementById('passwordInput');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const errorMsg = document.getElementById('errorMsg');
+
+        function checkPassword() {
+            if (passwordInput.value === '15400') {
+                passwordCard.style.display = 'none';
+                
+                // Terus buka Kotak Hadiah lepas berjaya
+                giftCard.style.display = 'block';
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 }});
+            } else {
+                errorMsg.style.display = 'block';
+                passwordInput.value = '';
+                passwordCard.classList.remove('shake'); 
+                void passwordCard.offsetWidth; 
+                passwordCard.classList.add('shake');
+            }
+        }
+
+        unlockBtn.addEventListener('click', checkPassword);
+        passwordInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') checkPassword(); });
+        passwordInput.addEventListener('input', () => { errorMsg.style.display = 'none'; });
+
+        // --- LOGIK KOTAK HADIAH (GIFT BOX) ---
+        const giftBtn = document.getElementById('giftBtn');
+        const giftHint = document.getElementById('giftHint');
+
+        giftBtn.addEventListener('click', () => {
+            giftBtn.classList.add('shake-gift');
+            giftHint.innerHTML = "Membuka...";
+            
+            setTimeout(() => {
+                giftBtn.classList.remove('shake-gift');
+                giftBtn.innerHTML = '🎊🎁🎊';
+                giftBtn.style.animation = 'none';
+                
+                confetti({ particleCount: 200, spread: 120, origin: { y: 0.5 }, colors: ['#ff6b6b', '#feca57', '#48dbfb', '#1dd1a1', '#ff9ff3'] });
+                
+                // Pindah ke Galeri Gambar lepas 2 saat
+                setTimeout(() => {
+                    giftCard.style.display = 'none';
+                    galleryCard.style.display = 'block';
+                }, 2000);
+                
+            }, 600); 
+        });
+
+        // --- LOGIK BUTANG SETERUSNYA (DARI GALERI KE GAME) ---
+        const nextToGameBtn = document.getElementById('nextToGameBtn');
+        
+        nextToGameBtn.addEventListener('click', () => {
+            galleryCard.style.display = 'none';
+            mainCard.style.display = 'block';
+        });
+
+        // --- Logik Kad Utama & YES/NO ---
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const msg = document.getElementById('responseMsg');
+        const mainText = document.getElementById('main-text');
+        const btnContainer = document.getElementById('btn-container');
+
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 150);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        });
+
+        yesBtn.addEventListener('click', () => {
+            confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 }});
+            push(ref(db, 'responses'), {
+                jawapan: "YES",
+                masa: new Date().toLocaleString('ms-MY'),
+                status: "Hadir"
+            }).then(() => {
+                btnContainer.style.display = 'none';
+                mainText.style.display = 'none';
+                msg.style.display = 'block';
+            });
+        });
+
+        // --- Logik Tic-Tac-Toe ---
+        let board = ["", "", "", "", "", "", "", "", ""];
+        let gameActive = true;
+        const playerSymbol = "💖";
+        const botSymbol = "🎈"; 
+        const winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+        const cells = document.querySelectorAll('.cell');
+        const gameStatus = document.getElementById('game-status');
+        const nextSesiBtn = document.getElementById('nextSesiBtn');
+
+        cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+
+        function handleCellClick(e) {
+            const cell = e.target;
+            const index = cell.getAttribute('data-index');
+            if (board[index] !== "" || !gameActive) return;
+
+            board[index] = playerSymbol;
+            cell.innerText = playerSymbol;
+
+            if (checkWin(playerSymbol)) { endGame("Yayyy Awak Menang 🎉🥰"); return; }
+            if (!board.includes("")) { endGame("Seri! ISHHH BAGI LAH SAYA MENANG ! 😆💖"); return; }
+            setTimeout(botPlay, 500);
+        }
+
+        function botPlay() {
+            if (!gameActive) return;
+            let emptyCells = board.map((val, idx) => val === "" ? idx : null).filter(val => val !== null);
+            if (emptyCells.length === 0) return;
+            let randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+            board[randomIndex] = botSymbol;
+            document.querySelector(`.cell[data-index='${randomIndex}']`).innerText = botSymbol;
+            if (checkWin(botSymbol)) { endGame("YAYYY SAYAA MENANG 😱 ! 😆💖"); }
+        }
+
+        function checkWin(symbol) {
+            return winConditions.some(condition => condition.every(index => board[index] === symbol));
+        }
+
+        function endGame(text) {
+            gameStatus.innerHTML = text;
+            gameActive = false;
+            confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+            setTimeout(() => { nextSesiBtn.style.display = 'inline-block'; }, 1500);
+        }
+
+        // --- KOD GAME MEMORY MATCH (GAMBAR SENDIRI) ---
+        const memoryGameCard = document.getElementById('memoryGameCard');
+        const memoryGameBoard = document.getElementById('memory-game-board');
+        const memoryStatus = document.getElementById('memory-status');
+        const nextKeKekBtn = document.getElementById('nextKeKekBtn');
+        const cakeCard = document.getElementById('cakeCard');
+
+        const senaraiGambar = [
+            'gambar1.jpg', 'gambar1.jpg', 
+            'gambar2.jpg', 'gambar2.jpg', 
+            'gambar3.jpg', 'gambar3.jpg', 
+            'gambar4.jpg', 'gambar4.jpg'
+        ];
+        
+        let hasFlippedCard = false;
+        let lockBoard = false;
+        let firstCard, secondCard;
+        let matchedPairs = 0;
+
+        nextSesiBtn.addEventListener('click', () => {
+            mainCard.style.display = 'none';
+            memoryGameCard.style.display = 'block';
+            setupMemoryGame();
+        });
+
+        function setupMemoryGame() {
+            memoryGameBoard.innerHTML = '';
+            matchedPairs = 0;
+            let shuffledGambar = senaraiGambar.sort(() => 0.5 - Math.random());
+
+            shuffledGambar.forEach((imgSrc) => {
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('m-card');
+                cardElement.dataset.gambar = imgSrc;
+
+                cardElement.innerHTML = `
+                    <div class="m-card-front">
+                        <img src="${imgSrc}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="m-card-back">✨</div>
+                `;
+
+                cardElement.addEventListener('click', flipCard);
+                memoryGameBoard.appendChild(cardElement);
+            });
+        }
+
+        function flipCard() {
+            if (lockBoard) return;
+            if (this === firstCard) return;
+
+            this.classList.add('flip');
+
+            if (!hasFlippedCard) {
+                hasFlippedCard = true;
+                firstCard = this;
+                return;
+            }
+
+            secondCard = this;
+            checkForMatch();
+        }
+
+        function checkForMatch() {
+            let isMatch = firstCard.dataset.gambar === secondCard.dataset.gambar;
+            isMatch ? disableCards() : unflipCards();
+        }
+
+        function disableCards() {
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
+            
+            matchedPairs++;
+            
+            if (matchedPairs === 4) {
+                setTimeout(() => {
+                    memoryStatus.innerHTML = "WOWW Powerlah Birthday Girl !!! 😍🎉";
+                    nextKeKekBtn.style.display = 'inline-block';
+                    confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+                }, 500);
+            }
+
+            resetBoard();
+        }
+
+        function unflipCards() {
+            lockBoard = true;
+            setTimeout(() => {
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
+                resetBoard();
+            }, 1000);
+        }
+
+        function resetBoard() {
+            [hasFlippedCard, lockBoard] = [false, false];
+            [firstCard, secondCard] = [null, null];
+        }
+
+        // --- Logik Ke Kad Tiup Kek ---
+        nextKeKekBtn.addEventListener('click', () => {
+            memoryGameCard.style.display = 'none';
+            cakeCard.style.display = 'block';
+        });
+
+        // --- Logik Tiup Kek (Butang Next) ---
+        const bigFlame = document.getElementById('big-flame');
+        const finalNote = document.getElementById('finalNote');
+        const tiupHint = document.getElementById('tiup-hint');
+        const padamLilinBtn = document.getElementById('padamLilinBtn'); 
+        
+        padamLilinBtn.addEventListener('click', blowOutCandle);
+        bigFlame.addEventListener('click', blowOutCandle);
+
+        function blowOutCandle() {
+		 // 👉 TAMBAH DEKAT SINI
+   		 bgMusic.pause();
+    		bgMusic.currentTime = 0;
+
+    const finalMusic = document.getElementById('finalMusic');
+    finalMusic.play();
+            bigFlame.style.display = 'none';
+            tiupHint.style.display = 'none';
+            padamLilinBtn.style.display = 'none'; 
+            
+            setTimeout(() => {
+                finalNote.style.display = 'block';
+                fireFireworksEffect(); 
+            }, 500);
+        }
+
+        // --- KOD UNTUK BUNGA API BENTUK HATI (LOVE) ---
+        function fireFireworksEffect() {
+            var duration = 10 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { ticks: 100, zIndex: 100, colors: ['#ff6b6b', '#feca57', '#48dbfb', '#1dd1a1', '#ff9ff3'] };
+
+            function calculateHeartPoint(t) {
+                var scale = 15;
+                var x = 16 * Math.pow(Math.sin(t), 3);
+                var y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+                return { x: x * scale, y: -y * scale };
+            }
+
+            function createHeartExplosion(originX, originY) {
+                var particleCount = 200;
+                var defaultsOptions = Object.assign({}, defaults, { origin: { x: originX, y: originY } });
+                
+                for (var i = 0; i < particleCount; i++) {
+                    var t = (i / particleCount) * 2 * Math.PI;
+                    var point = calculateHeartPoint(t);
+                    
+                    confetti(Object.assign({}, defaultsOptions, {
+                        particleCount: 1, spread: 360, startVelocity: 50, ticks: 150,
+                        scalar: randomInRange(0.8, 1.2),
+                        origin: {
+                            x: defaultsOptions.origin.x + (point.x / window.innerWidth),
+                            y: defaultsOptions.origin.y + (point.y / window.innerHeight)
+                        }
+                    }));
+                }
+            }
+            
+            function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+
+            createHeartExplosion(0.5, 0.5); 
+            setTimeout(function() { createHeartExplosion(randomInRange(0.1, 0.4), randomInRange(0.2, 0.6)); }, 1000);
+            setTimeout(function() { createHeartExplosion(randomInRange(0.6, 0.9), randomInRange(0.2, 0.6)); }, 2000);
+        }
+    </script>
+</body>
+</html>
